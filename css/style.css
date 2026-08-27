@@ -1,0 +1,212 @@
+/*
+    TECHBLOG - FEUILLE DE STYLE
+    ============================
+    SOMMAIRE :
+    1. Variables (:root)
+    2. Reset
+    3. Body / typographie
+    4. Header + navigation
+    5. Hero + bouton
+    6. Grille articles + cartes
+    7. Pages intérieures (about, article, contact)
+    8. Footer
+    9. Media queries (responsive)
+*/
+
+/* ===== VARIABLES ===== */
+:root {
+    --primary: #2563eb;
+    --dark: #1e293b;
+    --light: #f8fafc;
+    --text: #334155;
+    --border: #e2e8f0;
+}
+
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    color: var(--text);
+    background: var(--light);
+    line-height: 1.6;
+}
+
+/* ===== HEADER ===== */
+header {
+    display: flex;              /* 1. les enfants (logo + nav) s'alignent sur une ligne */
+    justify-content: space-between;  /* 2. 1er enfant à gauche, dernier à droite, espace entre */
+    align-items: center;        /* 3. centrés verticalement (même hauteur) */
+    padding: 16px 32px;         /* respire en haut/bas, plus d'air sur les côtés */
+    background: white;
+    border-bottom: 1px solid var(--border); /* filet de séparation avec le reste */
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;           /* gras */
+    color: var(--dark);
+    text-decoration: none;      /* vire le soulignement du lien */
+}
+
+/* ===== NAVIGATION ===== */
+nav ul {
+    display: flex;              /* le ul devient flex à son tour : les li s'alignent */
+    list-style: none;           /* vire les puces • */
+    gap: 24px;                  /* espace ENTRE les li, sans marges crades */
+}
+
+nav a {
+    text-decoration: none;      /* liens non soulignés */
+    color: var(--text);
+    font-weight: 500;
+}
+
+nav a:hover {                   /* au survol de la souris */
+    color: var(--primary);      /* le texte devient bleu */
+}
+
+/* ===== HERO ===== */
+.hero {
+    text-align: center;
+    padding: 80px 20px;         /* gros padding = section qui respire */
+    background: white;
+}
+
+.hero h1 {
+    font-size: 40px;
+    color: var(--dark);
+    margin-bottom: 16px;        /* espace SOUS le titre (margin, pas padding) */
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 500px;           /* le paragraphe ne s'étale pas sur toute la largeur */
+    margin: 0 auto 32px;        /* centré horizontalement (auto = marges égales) */
+}
+
+/* ===== BOUTON ===== */
+.btn {
+    display: inline-block;      /* le lien <a> devient une boîte dimensionnable */
+    background: var(--primary);
+    color: white;
+    padding: 12px 32px;         /* padding généreux = bouton confortable */
+    border-radius: 8px;         /* coins arrondis */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background: var(--dark);    /* au survol, le bouton devient sombre */
+}
+
+/* ===== SECTION ARTICLES ===== */
+.section-title {
+    text-align: center;
+    font-size: 28px;
+    color: var(--dark);
+    margin: 48px 0 32px;        /* haut / côtés / bas */
+}
+/* ===== GRILLE ===== */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* 3 colonnes égales */
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;             /* la grille entière est centrée */
+    padding: 0 20px 48px;       /* bas généreux avant le footer */
+}
+/* ===== CARTES ===== */
+.article-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+}
+.article-card h2 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+.article-card h2 a {
+    color: var(--dark);
+    text-decoration: none;
+}
+.article-card h2 a:hover {
+    color: var(--primary);      /* le titre devient bleu au survol */
+}
+.article-meta {
+    font-size: 13px;
+    color: #94a3b8;             /* gris clair = info secondaire */
+    margin-bottom: 12px;
+}
+.article-card p:last-of-type {  /* le paragraphe d'extrait */
+    color: var(--text);
+    font-size: 15px;
+}
+
+/* ===== PAGES INTÉRIEURES (about, article, contact) ===== */
+.page-content {
+    max-width: 800px;
+    margin: 0 auto;              /* centre le bloc */
+    padding: 48px 20px;          /* respire, et marge sur mobile */
+}
+
+.page-content h2 {
+    margin: 32px 0 16px;         /* espace avant/après les sous-titres */
+    color: var(--dark);
+}
+
+.page-content p {
+    margin-bottom: 16px;         /* de l'air entre paragraphes */
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    background: var(--dark);
+    color: white;
+    padding: 24px 32px;
+}
+
+footer ul {
+    display: flex;              /* les liens du footer en ligne */
+    justify-content: center;
+    list-style: none;
+    gap: 24px;
+    margin-bottom: 8px;
+}
+
+footer a {
+    color: #cbd5e1;             /* gris clair sur fond sombre */
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: white;
+}
+
+
+/* ===== RESPONSIVE (mobile) ===== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;     /* header empilé : logo AU-DESSUS du menu */
+        gap: 12px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;            /* le menu peut passer sur 2 lignes */
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 28px;            /* titre plus petit sur mobile */
+    }
+
+    .articles-grid {
+        grid-template-columns: 1fr; /* UNE seule colonne : cartes empilées */
+    }
+}
