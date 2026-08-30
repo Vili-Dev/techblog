@@ -29,3 +29,31 @@ const savedTheme = localStorage.getItem('theme');
 if (savedTheme) {
     document.documentElement.setAttribute('data-theme', savedTheme);
 }
+
+// ----- 2. CARTES ARTICLES -----
+
+function creerCarte(article) {
+    const carte = document.createElement('article');   // crée <article> en mémoire
+    carte.className = 'article-card';                  // lui donne la classe CSS
+
+    carte.innerHTML = `
+        <h2><a href="article.html?id=${article.id}">${article.titre}</a></h2>
+        <p class="article-meta">${article.auteur} - ${article.date} - ${article.duree} min</p>
+        <p>${article.extrait}</p>
+    `;
+    return carte;
+}
+
+// ----- 3. AFFICHAGE DES ARTICLES -----
+
+function afficherArticles() {
+    const grille = document.getElementById('articles-grid');
+    // si la page n'a pas de grille (ex: contact.html), on sort
+    if (!grille) return;
+
+    for (const article of ARTICLES) {
+        grille.appendChild(creerCarte(article));
+    }
+}
+
+afficherArticles();
