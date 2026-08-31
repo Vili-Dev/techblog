@@ -57,3 +57,19 @@ function afficherArticles() {
 }
 
 afficherArticles();
+
+// ----- 4 MENU BURGER -----
+
+const menuToggle = document.getElementById('menu-toggle');
+
+if (menuToggle) {
+    menuToggle.addEventListener('click', function () {
+        const nav = document.querySelector('nav');
+        nav.classList.toggle('open');
+
+        // met à jour l'icône et l'aria-label
+        const ouvert = nav.classList.contains('open');
+        menuToggle.textContent = ouvert ? '✕' : '☰';
+        menuToggle.setAttribute('aria-label', ouvert ? 'Fermer le menu' : 'Ouvrir le menu');
+    });
+}

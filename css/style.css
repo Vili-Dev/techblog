@@ -205,6 +205,18 @@ footer a:hover {
 }
 
 
+/* ===== MENU BURGER ===== */
+.menu-toggle {
+    display: none;              /* caché en desktop */
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-main);
+}
+
+
+
 /* ===== RESPONSIVE (mobile) ===== */
 @media (max-width: 768px) {
     header {
@@ -224,4 +236,17 @@ footer a:hover {
     .articles-grid {
         grid-template-columns: 1fr; /* UNE seule colonne : cartes empilées */
     }
+
+    .menu-toggle {
+        display: block;             /* visible en mobile */
+    }
+
+    nav {
+        display: none;              /* menu caché par défaut en mobile */
+    }
+
+    nav.open {
+        display: block;             /* .open = menu ouvert */
+    }
 }
+
