@@ -26,9 +26,8 @@ $derniers = $stmt->fetchAll();
 <body>
 
     <header>
+        <a href="index.php" class="logo">TechBlog</a>
 
-        <a href="index.html" class="logo">TechBlog</a>
-        
         <nav>
             <ul>
                 <li><a href="index.php">Accueil</a></li>
@@ -37,16 +36,18 @@ $derniers = $stmt->fetchAll();
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
-        <button id="theme-toggle" aria-label="Basculer le thème clair/sombre">🌗</button>
-        <button id="menu-toggle" aria-label="Ouvrir le menu" class="menu-toggle">☰</button>
 
-        <?php if (isset($_SESSION['user_id'])): ?>
-            <span class="nav-user">Bonjour, <?= htmlspecialchars($_SESSION['user_nom']) ?></span>
-            <a href="logout.php">Déconnexion</a>
-        <?php else: ?>
-            <a href="login.php">Connexion</a>
-        <?php endif; ?>
- 
+        <div class="header-actions">
+            <?php if (isset($_SESSION['user_id'])): ?>
+                <span class="nav-user">Bonjour, <?= htmlspecialchars($_SESSION['user_nom']) ?></span>
+                <a href="logout.php">Déconnexion</a>
+            <?php else: ?>
+                <a href="login.php">Connexion</a>
+            <?php endif; ?>
+
+            <button id="theme-toggle" aria-label="Basculer le thème clair/sombre">🌗</button>
+            <button id="menu-toggle" aria-label="Ouvrir le menu" class="menu-toggle">☰</button>
+        </div>
     </header>
 
     <main>

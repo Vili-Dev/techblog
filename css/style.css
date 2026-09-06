@@ -67,6 +67,12 @@ header {
     text-decoration: none;      /* vire le soulignement du lien */
 }
 
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
 /* ===== NAVIGATION ===== */
 nav ul {
     display: flex;              /* le ul devient flex à son tour : les li s'alignent */
@@ -226,6 +232,11 @@ footer a:hover {
 
     nav ul {
         flex-wrap: wrap;            /* le menu peut passer sur 2 lignes */
+        justify-content: center;
+    }
+
+    .header-actions {
+        flex-wrap: wrap;
         justify-content: center;
     }
 
