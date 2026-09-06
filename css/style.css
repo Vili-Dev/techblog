@@ -52,15 +52,16 @@ body {
 
 /* ===== HEADER ===== */
 header {
-    display: flex;              /* 1. les enfants (logo + nav) s'alignent sur une ligne */
-    justify-content: space-between;  /* 2. 1er enfant à gauche, dernier à droite, espace entre */
-    align-items: center;        /* 3. centrés verticalement (même hauteur) */
+    display: flex;              /* les enfants (logo + nav + actions) s'alignent sur une ligne */
+    align-items: center;        /* centrés verticalement (même hauteur) */
+    gap: 24px;                  /* espace entre les 3 zones */
     padding: 16px 32px;         /* respire en haut/bas, plus d'air sur les côtés */
     background: var(--bg-surface);
     border-bottom: 1px solid var(--border); /* filet de séparation avec le reste */
 }
 
 .logo {
+    flex: 1;                    /* espace extensible à GAUCHE — la nav reste centrée */
     font-size: 24px;
     font-weight: 700;           /* gras */
     color: var(--text-main);
@@ -69,7 +70,9 @@ header {
 
 .header-actions {
     display: flex;
+    flex: 1;                    /* espace extensible à DROITE — équilibre le flex:1 du logo */
     align-items: center;
+    justify-content: flex-end;  /* contenu collé au bord droit */
     gap: 12px;
 }
 
@@ -235,8 +238,9 @@ footer a:hover {
         justify-content: center;
     }
 
+    .logo,
     .header-actions {
-        flex-wrap: wrap;
+        flex: none;                 /* en mobile empilé, plus de zones extensibles */
         justify-content: center;
     }
 
