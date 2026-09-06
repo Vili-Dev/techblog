@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'includes/pdo.php';
 
 // 1. RÉCUPÉRER l'id depuis l'URL (article.php?id=3)
@@ -40,7 +41,7 @@ if (!$article) {
         
         <nav>
             <ul>
-                <li><a href="index.html">Accueil</a></li>
+                <li><a href="index.php">Accueil</a></li>
                 <li><a href="articles.php">Articles</a></li>
                 <li><a href="about.html">À propos</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -48,6 +49,14 @@ if (!$article) {
         </nav>
         <button id="theme-toggle" aria-label="Basculer le thème clair/sombre">🌗</button>
         <button id="menu-toggle" aria-label="Ouvrir le menu" class="menu-toggle">☰</button>
+    
+        <?php if (isset($_SESSION['user_id'])): ?>
+            <span class="nav-user">Bonjour, <?= htmlspecialchars($_SESSION['user_nom']) ?></span>
+            <a href="logout.php">Déconnexion</a>
+        <?php else: ?>
+            <a href="login.php">Connexion</a>
+        <?php endif; ?>
+    
     </header>
     <main>
         <div class="page-content">
