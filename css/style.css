@@ -43,11 +43,15 @@
     box-sizing: border-box;
 }
 
+
 body {
     font-family: system-ui, sans-serif;
     color: var(--text-main);
     background: var(--bg-page);
     line-height: 1.6;
+    min-height: 100vh;        /* le body fait AU MOINS la hauteur de l'écran */
+    display: grid;            /* le body devient une grille */
+    grid-template-rows: auto 1fr auto; 
 }
 
 /* ===== HEADER ===== */

@@ -56,18 +56,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <header>
-        <a href="index.html" class="logo">TechBlog</a>
-        
+        <a href="index.php" class="logo">TechBlog</a>
+
         <nav>
             <ul>
-                <li><a href="index.html">Accueil</a></li>
+                <li><a href="index.php">Accueil</a></li>
                 <li><a href="articles.php">Articles</a></li>
                 <li><a href="about.html">À propos</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
-        <button id="theme-toggle" aria-label="Basculer le thème clair/sombre">🌗</button>
-        <button id="menu-toggle" aria-label="Ouvrir le menu" class="menu-toggle">☰</button>
+
+        <div class="header-actions">
+            <button id="theme-toggle" aria-label="Basculer le thème clair/sombre">🌗</button>
+            <button id="menu-toggle" aria-label="Ouvrir le menu" class="menu-toggle">☰</button>
+        </div>
     </header>
     <main>
         <div class="page-content">
