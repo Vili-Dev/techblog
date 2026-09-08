@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // ③ VÉRIFIE le mot de passe contre le hash
         if ($user && password_verify($motdepasse, $user['mot_de_passe'])) {
 
-            // ④ CONNEXION : LA ligne que le jury demandait
+            // ④ CONNEXION 
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_nom'] = $user['nom'];
 
