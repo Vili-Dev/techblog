@@ -73,7 +73,6 @@ $articles = $stmt->fetchAll();
         </ul>
         <p>&copy; 2026 TechBlog - Projet de formation DWWM</p>
     </footer>
-    <script src="data/articles.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
